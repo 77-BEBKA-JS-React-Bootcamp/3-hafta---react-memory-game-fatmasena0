@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
-function App() {
+import Home from "./components/Home/Home"
+import GameBoardTwo from "./components/GameBoardTwo/GameBoardTwo"
+import Result from "./components/Result/Result"
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+      <nav className="navbar">
+        <div className="wooden-text">
+          <div>Memory Wars</div>
+        </div>      
+      </nav>
+        <Switch>
+          <Route path="/game">
+              <GameBoardTwo />
+          </Route>
+          <Route path="/result">
+              <Result />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+    </Router>
     </div>
-  );
+  )
 }
 
 export default App;
