@@ -49,7 +49,7 @@ class GameBoardTwo extends Component {
     matchedCards: [],
     flippedCards: [],
     level: 1,
-    score: 50,
+    score: 25,
     highScore: 0
 }
 }
@@ -114,9 +114,6 @@ class GameBoardTwo extends Component {
              (this.state.matchedCards.length === 12 && this.state.level === 2) ||
              (this.state.matchedCards.length === 20 && this.state.level === 3)
             ) {
-            if (this.state.level === 3) {
-                this.setState({ highScore: this.state.score})
-            }
             tempCards.forEach(item => item.open === true ? item.open = false: item.open=false)
             this.setState({ 
                 level: this.state.level+1,
